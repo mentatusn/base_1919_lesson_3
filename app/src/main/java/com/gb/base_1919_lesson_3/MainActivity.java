@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +27,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         setListeners();
         btnCounterTwo.setOnClickListener(listener);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("counterOne",counterOne);
+        outState.putInt("counterTwo",counterTwo);
+        outState.putInt("counterThree",counterThree);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        counterOne = savedInstanceState.getInt("counterOne");
+        tvCounterOne.setText(String.format("%d", counterOne));
+
+        counterTwo = savedInstanceState.getInt("counterTwo");
+        tvCounterTwo.setText(String.format("%d", counterTwo));
+
+        counterThree = savedInstanceState.getInt("counterThree");
+        tvCounterThree.setText(String.format("%d", counterThree));
     }
 
     @Override
