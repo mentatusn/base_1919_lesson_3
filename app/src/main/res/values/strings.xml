@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">base_1919_lesson_3</string>
+    <string name="counter_one">CounterOne</string>
+    <string name="counter_two">CounterTwo</string>
 </resources>
