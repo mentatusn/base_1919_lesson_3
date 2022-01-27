@@ -10,15 +10,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private int counterOne = 0;
-    private int counterTwo = 0;
-    private int counterThree = 0;
-    Button btnCounterOne;
-    Button btnCounterTwo;
-    Button btnCounterThree;
-    TextView tvCounterOne;
-    TextView tvCounterTwo;
-    TextView tvCounterThree;
+
+    private Counter counter = new Counter();
+
+    private Button btnCounterOne;
+    private Button btnCounterTwo;
+    private Button btnCounterThree;
+    private TextView tvCounterOne;
+    private TextView tvCounterTwo;
+    private TextView tvCounterThree;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,46 +26,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initView();
         setListeners();
-        btnCounterTwo.setOnClickListener(listener);
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("counterOne",counterOne);
-        outState.putInt("counterTwo",counterTwo);
-        outState.putInt("counterThree",counterThree);
+        outState.putInt("counterOne",counter.getCounterOne());
+        outState.putInt("counterTwo",counter.getCounterTwo());
+        outState.putInt("counterThree",counter.getCounterThree());
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        counterOne = savedInstanceState.getInt("counterOne");
-        tvCounterOne.setText(String.format("%d", counterOne));
+        counter.setCounterOne(savedInstanceState.getInt("counterOne"));
+        tvCounterOne.setText(String.format("%d", counter.getCounterOne()));
 
-        counterTwo = savedInstanceState.getInt("counterTwo");
-        tvCounterTwo.setText(String.format("%d", counterTwo));
+        counter.setCounterTwo(savedInstanceState.getInt("counterTwo"));
+        tvCounterTwo.setText(String.format("%d", counter.getCounterTwo()));
 
-        counterThree = savedInstanceState.getInt("counterThree");
-        tvCounterThree.setText(String.format("%d", counterThree));
+        counter.setCounterThree(savedInstanceState.getInt("counterThree"));
+        tvCounterThree.setText(String.format("%d", counter.getCounterThree()));
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case (R.id.btnCounterOne): {
-                counterOne = counterOne + 1;
-                tvCounterOne.setText(String.format("%d", counterOne));
+                counter.incCounterOne();
+                tvCounterOne.setText(String.format("%d", counter.getCounterOne()));
                 break;
             }
             case (R.id.btnCounterTwo): {
-                counterTwo = counterTwo + 1;
-                tvCounterTwo.setText(String.format("%d", counterTwo));
+                counter.incCounterTwo();
+                tvCounterTwo.setText(String.format("%d", counter.getCounterTwo()));
                 break;
             }
             case (R.id.btnCounterThree): {
-                counterThree = counterThree + 1;
-                tvCounterThree.setText(String.format("%d", counterThree));
+                counter.incCounterThree();;
+                tvCounterThree.setText(String.format("%d", counter.getCounterThree()));
                 break;
             }
             default: {
@@ -78,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCounterOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counterOne = counterOne + 1;
-                tvCounterOne.setText(String.format("%d", counterOne));
+                counter.incCounterOne();
+                tvCounterOne.setText(String.format("%d", counter.getCounterOne()));
             }
         });
         btnCounterTwo.setOnClickListener(listener);
@@ -93,13 +92,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             switch (view.getId()) {
                 case (R.id.btnCounterOne): {
-                    counterOne = counterOne + 1;
-                    tvCounterOne.setText(String.format("%d", counterOne));
+                    counter.incCounterOne();
+                    tvCounterOne.setText(String.format("%d", counter.getCounterOne()));
                     break;
                 }
                 case (R.id.btnCounterTwo): {
-                    counterTwo = counterTwo + 1;
-                    tvCounterTwo.setText(String.format("%d", counterTwo));
+                    counter.incCounterTwo();
+                    tvCounterTwo.setText(String.format("%d", counter.getCounterTwo()));
                     break;
                 }
                 default: {
