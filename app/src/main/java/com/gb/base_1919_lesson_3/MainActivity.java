@@ -31,13 +31,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable("counter",counter);
+        outState.putParcelable("counter",counter);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        counter = (Counter) savedInstanceState.getSerializable("counter");
+        counter = savedInstanceState.getParcelable("counter");
         tvCounterOne.setText(String.format("%d", counter.getCounterOne()));
         tvCounterTwo.setText(String.format("%d", counter.getCounterTwo()));
         tvCounterThree.setText(String.format("%d", counter.getCounterThree()));
