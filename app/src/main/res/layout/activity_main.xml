@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/counter_one"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnCounterTwo"
         app:layout_constraintEnd_toStartOf="@+id/tvCounterOne"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_size_counter"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvCounterTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnCounterOne"
@@ -33,22 +33,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/counter_two"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvCounterOne"
+        app:layout_constraintBottom_toTopOf="@+id/btnCounterThree"
+        app:layout_constraintEnd_toStartOf="@+id/tvCounterTwo"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnCounterOne" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCounterOne" />
 
     <TextView
         android:id="@+id/tvCounterTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_size_counter"
+        app:layout_constraintBottom_toTopOf="@+id/tvCounterThree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCounterTwo"
+        app:layout_constraintTop_toBottomOf="@+id/tvCounterOne" />
+
+    <Button
+        android:id="@+id/btnCounterThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/counter_three"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvCounterThree"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCounterTwo" />
+
+    <TextView
+        android:id="@+id/tvCounterThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_counter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCounterOne"
-        app:layout_constraintTop_toTopOf="@id/tvCounterOne" />
+        app:layout_constraintStart_toEndOf="@+id/btnCounterThree"
+        app:layout_constraintTop_toBottomOf="@+id/tvCounterTwo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
