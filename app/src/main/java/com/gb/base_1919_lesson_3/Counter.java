@@ -1,6 +1,8 @@
 package com.gb.base_1919_lesson_3;
 
-public class Counter {
+import java.io.Serializable;
+
+public class Counter implements Serializable {
 
     public void setCounterOne(int counterOne) {
         this.counterOne = counterOne;
